@@ -86,7 +86,7 @@ RUN \
   mv ${ROOT}/style.css ${ROOT}/user.css && \
   # one of the ugliest hacks I ever wrote \
   sed -i 's/in_app_dir = .*/in_app_dir = True/g' /usr/local/lib/python3.10/site-packages/gradio/routes.py && \
-  git config --global --add safe.directory '*'
+    git config --global --add safe.directory '*'
 
 WORKDIR ${ROOT}
 ENV NVIDIA_VISIBLE_DEVICES=all
