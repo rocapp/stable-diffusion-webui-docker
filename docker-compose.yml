@@ -4,8 +4,8 @@ x-base_service: &base_service
     ports:
       - "${WEBUI_PORT:-7860}:7860"
     volumes:
-      - &v1 ./data:/data
-      - &v2 ./output:/output
+      - &v1 /data/sd-inputs:/data
+      - &v2 /data/sd-outputs:/output
     stop_signal: SIGKILL
     tty: true
     deploy:
@@ -13,7 +13,7 @@ x-base_service: &base_service
         reservations:
           devices:
               - driver: nvidia
-                device_ids: ['0']
+                count: all
                 capabilities: [compute, utility]
 
 name: webui-docker
